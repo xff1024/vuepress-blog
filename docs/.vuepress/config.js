@@ -1,7 +1,6 @@
 module.exports = {
   title: "link.liu",
   description: "走的慢不要紧，一直向前就好",
-  dest: "dist",
   base: '/',
   theme: 'reco',
   head: [
