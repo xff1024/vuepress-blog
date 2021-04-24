@@ -15,5 +15,5 @@ git add -A
 git commit -m 'deploy'
 #git@github.com:xff1024/xff1024.github.io.git
 # git push -f git@github.com:xff1024/xff1024.github.io.git master
-git push --force --quiet "https://${GH_TOKEN}@github.com/xff1024/xff1024.github.io.git" master
+#git push --force --quiet "https://${GH_TOKEN}@github.com/xff1024/xff1024.github.io.git" master
 cd -
