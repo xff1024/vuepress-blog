@@ -13,6 +13,6 @@ cd docs/.vuepress/dist
 git init
 git add -A
 git commit -m 'deploy'
-#https://github.com/xff1024/xff1024.github.io.git
+#git@github.com:xff1024/xff1024.github.io.git
 git push -f git@github.com:xff1024/xff1024.github.io.git master:gh-pages
 cd -
