@@ -65,5 +65,8 @@ git push --force --quiet "https://${GH_TOKEN}@github.com/xff1024/xff1024.github.
 cd -
 ```
 ::: warning
-  值得注意的是 .travis.yml 还有 .deploy.sh的书写
+  值得注意的是 .travis.yml 还有 .deploy.sh的书写  
 :::
+
+
+
