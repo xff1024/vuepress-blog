@@ -197,3 +197,8 @@ tags:
 ::: tip
  完成以上步骤基本就搭建出来啦，剩下值得注意的就是  a.写.md文档博客时记得 Front Matter在最前面  b. 可以在md文档中进行脚本的执行以及vue组件的解析，这个自己参照文档
 :::
+
+::: tip
+Vuepress & Markdown 语法扩展
+[原文地址](https://vuepress-theme-reco.recoluan.com/views/1.x/syntax.html)
+:::
