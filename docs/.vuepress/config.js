@@ -84,6 +84,12 @@ module.exports = {
         "desc": "Enjoy when you can, and endure when you must.",
         "email": "1156743527@qq.com",
         "link": "https://www.recoluan.com"
+      },
+      {
+        "title": "前端那些事",
+        "desc": "前端工程化",
+        "email": "2498190377@qq.com",
+        "link": "https://github.com/littleTreeme/frontendThings"
       }
     ]
   }
