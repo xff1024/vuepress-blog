@@ -86,10 +86,22 @@ module.exports = {
         "link": "https://www.recoluan.com"
       },
       {
+        "title": "最强js学习系列",
+        "desc": "LinDaiDai_霖呆呆，this指向，promise爽到爆",
+        "email": "2498190377@qq.com",
+        "link": "https://juejin.cn/post/6844904083707396109"
+      },
+      {
         "title": "前端那些事",
         "desc": "前端工程化",
         "email": "2498190377@qq.com",
         "link": "https://github.com/littleTreeme/frontendThings"
+      },
+      {
+        "title": "前端工程化大佬-龙恩0707",
+        "desc": "前端工程化",
+        "email": "2498190377@qq.com",
+        "link": "https://www.cnblogs.com/tugenhua0707/p/10261170.html"
       }
     ]
   }
