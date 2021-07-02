@@ -63,3 +63,4 @@ type U1 = unknown | null; // unknown
 type U2 = unknown | string; // unknown
 type U3 = unknown | number; // unknown
 ```
+--gitemoji-test2
