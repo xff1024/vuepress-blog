@@ -42,7 +42,7 @@ module.exports = {
         icon: 'reco-other',
         items: [
           { text: 'google', link: 'https://google.com' , target:'_self', },
-          { text: 'baidu', link: 'https://baidu.com',  target:'_self',  }
+          { text: 'TS学习', link: 'https://jkchao.github.io/typescript-book-chinese/tips/infer.html#%E4%BB%8B%E7%BB%8D',  target:'_self',  }
         ]
       },
       {
