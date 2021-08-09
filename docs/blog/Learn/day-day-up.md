@@ -24,3 +24,29 @@ JSON.stringify({a: () => {}, b: undefined}) // "{}"
 JSON.stringify([undefined, Object, Symbol("")]);// '[null,null,null]'
 // 3. JSON.stingify存在上面情况不适合做深拷贝
 ```
+
+### 思考二: 前端文件下载的处理方式有哪些？
+```js
+// 方式一： 后端直接处理好，生成一个下载链接
+// 方式二： 后端返回二进制文件流，前端转化后下载，通过blob对象转化为文件后下载
+
+发送在请求接口时要设置responseType为blob
+export const download = (params) => {
+    return axios.post(url,params,{responseType:'blob'})
+}
+ 
+
+将响应回来的二进制文件流转化为文件的方法，fileName可以自定义文件名称，但是需要包含文件后缀
+export const download = (data: ArrayBuffer, fileName: string) => {
+  const url = window.URL.createObjectURL(new Blob([data]));
+  const link = document.createElement('a');
+  link.style.display = 'none';
+  link.href = url;
+  link.setAttribute('download', fileName);
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
+
+```
