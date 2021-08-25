@@ -50,3 +50,20 @@ export const download = (data: ArrayBuffer, fileName: string) => {
 
 
 ```
+
+### 思考三: js精度丢失问题常见解决办法？
+```js
+精度问题丢失场景：
+a. 浮点数精度问题，比如 0.1 + 0.2 !== 0.3
+b. 大数精度问题，比如 9999 9999 9999 9999 == 1000 0000 0000 0000 1
+c. toFixed 四舍五入结果不准确，比如 1.335.toFixed(2) == 1.33
+
+解决精度丢失的问题的思路：
+a.将浮点数转为整数运算，再对结果做除法。比如0.1 + 0.2，可以转化为(1*2)/3
+b.把浮点数转化为字符串，模拟实际运算的过程。
+上述两种存在一些缺陷
+
+推荐第三方js处理
+bignumber.js，decimal.js，以及big.js等
+【推荐链接】https://www.runoob.com/w3cnote/js-precision-problem-and-solution.html
+```
