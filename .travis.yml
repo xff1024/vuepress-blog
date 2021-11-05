@@ -1,4 +1,5 @@
 language: node_js
+notifications: webhooks: https://oapi.dingtalk.com/robot/send?access_token=4a02b07e4d14c0b72e7e7991158b87c3c229ef228bdb80f60d68140ea6b35607
 node_js:
   - lts/*
 script:
