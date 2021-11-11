@@ -67,3 +67,76 @@ b.把浮点数转化为字符串，模拟实际运算的过程。
 bignumber.js，decimal.js，以及big.js等
 【推荐链接】https://www.runoob.com/w3cnote/js-precision-problem-and-solution.html
 ```
+### 思考四：如何让授权页和当前页的通信(domain不同情况下的授权，如自己的网站需要GitHub授权之后再登录)
+```js
+ 可能会遇到一种场景，从当前页面触发某个动作（如每一次添加店铺或者上架新品）需要打开授权页
+ -> a.com的list页中打开新开一个页面 author.com 
+ -> 授权成功或者失败，重定向到a.com的callback反馈结果页
+ -> 反馈结果页再调用是否授权接口，调用结果通知a.com的list页
+ -> a.com中收到通知之后执行回调
+ 
+ // a.com channle-list页面
+  useEffect(() => {
+    // register a listener
+    const handleMessage = e => {
+      auth.receiveMessage(e.data, {
+        onSuccess: () => {
+          closeDialog();
+          reload();
+        },
+        onError: err => {
+          message.error(err);
+        },
+      });
+    };
+    window.addEventListener('message', handleMessage);
+    return () => {
+      window.removeEventListener('message', handleMessage);
+    };
+  }, []);
+  
+  // a.com 的callback页面
+  const { loading, data, error } = useRequest(auth.getAuthResult);
+  const { data: result } = data || {};
+  const success = !error && !!result?.success;
+  useEffect(() => {
+    if (success) {
+      auth.sendMessage({
+        msgType: 'authMessage',
+        result: 'success',
+      });
+      window.close();
+    } else {
+      auth.sendMessage({
+        msgType: 'authMessage',
+        error: error ? error.message : result?.error_message,
+      });
+    }
+  }, [success]);
+  
+  // auth.js 封装
+  export default {
+  getAuthResult() {
+    const params = qs.parse(window.location.search);
+    return request({
+      url: 'xxxxxxx',
+      params,
+    });
+  },
+  sendMessage(msg) {
+    if (window.opener) {
+      window.opener.postMessage(JSON.stringify(msg));
+    }
+  },
+  receiveMessage(msg, ctx) {
+    const data = JSON.parse(msg);
+    if (data?.msgType === 'authMessage') {
+      if (data?.result === 'success') {
+        ctx.onSuccess();
+      } else {
+        ctx.onError(data?.error);
+      }
+    }
+  },
+};
+```
